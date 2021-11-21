@@ -1,0 +1,31 @@
+version: '3.9'
+volumes: 
+  datafiles:
+
+services:
+  mysql:
+    image: mysql:8.0.27
+    container_name: mysql8.0.27
+    environment:
+      - MYSQL_ROOT_PASSWORD=pass
+      - MYSQL_TCP_PORT=3306
+    volumes:
+      - datafiles:/var/lib/mysql
+    restart: always
+
+  website:
+    container_name: php 7.4
+    build:
+      context: .
+      dockerfile: dockerfile
+    environment:
+      - MYSQL_DBHOST=mysql
+      - MYSQL_DBPORT=3306
+      - MYSQL_USER=root 
+      - MYSQL_DBPASS=secret
+      #- MYSQL_DBNAME=
+    ports:
+      - 8080:80
+      - 8083:443
+    depends_on:
+      - mysql
