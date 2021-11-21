@@ -4,5 +4,7 @@ WORKDIR /root/leaflet
 CMD [ "php", "./index.php" ]
 
 FROM httpd:2.4
-COPY ./public-html/ /usr/local/apache2/htdocs/
+COPY ./root/leaflet /usr/local/apache2/htdocs/
+CMD docker build -t my-apache2 .
+CMD docker run -dit --name my-running-app -p 8080:80 my-apache2
 
