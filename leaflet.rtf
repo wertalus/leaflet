@@ -1,0 +1,158 @@
+{\rtf1\ansi\ansicpg1250\cocoartf2580
+\cocoatextscaling0\cocoaplatform0{\fonttbl\f0\fnil\fcharset0 Menlo-Regular;}
+{\colortbl;\red255\green255\blue255;\red202\green202\blue202;\red23\green23\blue23;\red140\green211\blue254;
+\red212\green214\blue154;\red89\green138\blue67;\red67\green192\blue160;\red70\green137\blue204;\red183\green111\blue179;
+\red167\green197\blue152;}
+{\*\expandedcolortbl;;\cssrgb\c83137\c83137\c83137;\cssrgb\c11765\c11765\c11765;\cssrgb\c61176\c86275\c99608;
+\cssrgb\c86275\c86275\c66667;\cssrgb\c41569\c60000\c33333;\cssrgb\c30588\c78824\c69020;\cssrgb\c33725\c61176\c83922;\cssrgb\c77255\c52549\c75294;
+\cssrgb\c70980\c80784\c65882;}
+\paperw11900\paperh16840\margl1440\margr1440\vieww33400\viewh21000\viewkind0
+\deftab720
+\pard\pardeftab720\sl360\partightenfactor0
+
+\f0\fs24 \cf2 \cb3 \expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec2     \cf4 \strokec4 Layer\cf2 \strokec2 .\cf5 \strokec5 include\cf2 \strokec2 (\{\cb1 \
+\cb3   \cb1 \
+\cb3         \cf6 \strokec6 // @method bindPopup(content: String|HTMLElement|Function|Popup, options?: Popup options): this\cf2 \cb1 \strokec2 \
+\cb3         \cf6 \strokec6 // Binds a popup to the layer with the passed `content` and sets up the\cf2 \cb1 \strokec2 \
+\cb3         \cf6 \strokec6 // necessary event listeners. If a `Function` is passed it will receive\cf2 \cb1 \strokec2 \
+\cb3         \cf6 \strokec6 // the layer as the first argument and should return a `String` or `HTMLElement`.\cf2 \cb1 \strokec2 \
+\cb3         \cf7 \strokec7 bindPopup\cf4 \strokec4 :\cf2 \strokec2  \cf8 \strokec8 function\cf2 \strokec2  (\cf4 \strokec4 content\cf2 \strokec2 , \cf4 \strokec4 options\cf2 \strokec2 ) \{\cb1 \
+\cb3   \cb1 \
+\cb3             \cf9 \strokec9 if\cf2 \strokec2  (\cf4 \strokec4 content\cf2 \strokec2  \cf8 \strokec8 instanceof\cf2 \strokec2  \cf4 \strokec4 Popup\cf2 \strokec2 ) \{\cb1 \
+\cb3                 \cf5 \strokec5 setOptions\cf2 \strokec2 (\cf4 \strokec4 content\cf2 \strokec2 , \cf4 \strokec4 options\cf2 \strokec2 );\cb1 \
+\cb3                 \cf8 \strokec8 this\cf2 \strokec2 .\cf4 \strokec4 _popup\cf2 \strokec2  = \cf4 \strokec4 content\cf2 \strokec2 ;\cb1 \
+\cb3                 \cf4 \strokec4 content\cf2 \strokec2 .\cf4 \strokec4 _source\cf2 \strokec2  = \cf8 \strokec8 this\cf2 \strokec2 ;\cb1 \
+\cb3             \} \cf9 \strokec9 else\cf2 \strokec2  \{\cb1 \
+\cb3                 \cf9 \strokec9 if\cf2 \strokec2  (!\cf8 \strokec8 this\cf2 \strokec2 .\cf4 \strokec4 _popup\cf2 \strokec2  || \cf4 \strokec4 options\cf2 \strokec2 ) \{\cb1 \
+\cb3                     \cf8 \strokec8 this\cf2 \strokec2 .\cf4 \strokec4 _popup\cf2 \strokec2  = \cf8 \strokec8 new\cf2 \strokec2  \cf4 \strokec4 Popup\cf2 \strokec2 (\cf4 \strokec4 options\cf2 \strokec2 , \cf8 \strokec8 this\cf2 \strokec2 );\cb1 \
+\cb3                 \}\cb1 \
+\cb3                 \cf8 \strokec8 this\cf2 \strokec2 .\cf4 \strokec4 _popup\cf2 \strokec2 .\cf5 \strokec5 setContent\cf2 \strokec2 (\cf4 \strokec4 content\cf2 \strokec2 );\cb1 \
+\cb3             \}\cb1 \
+\cb3   \cb1 \
+\cb3             \cf9 \strokec9 if\cf2 \strokec2  (!\cf8 \strokec8 this\cf2 \strokec2 .\cf4 \strokec4 _popupHandlersAdded\cf2 \strokec2 ) \{\cb1 \
+\cb3                 \cf8 \strokec8 this\cf2 \strokec2 .\cf5 \strokec5 on\cf2 \strokec2 (\{\cb1 \
+\cb3                     \cf4 \strokec4 click:\cf2 \strokec2  \cf8 \strokec8 this\cf2 \strokec2 .\cf4 \strokec4 _openPopup\cf2 \strokec2 ,\cb1 \
+\cb3                     \cf4 \strokec4 keypress:\cf2 \strokec2  \cf8 \strokec8 this\cf2 \strokec2 .\cf4 \strokec4 _onKeyPress\cf2 \strokec2 ,\cb1 \
+\cb3                     \cf4 \strokec4 remove:\cf2 \strokec2  \cf8 \strokec8 this\cf2 \strokec2 .\cf4 \strokec4 closePopup\cf2 \strokec2 ,\cb1 \
+\cb3                     \cf4 \strokec4 move:\cf2 \strokec2  \cf8 \strokec8 this\cf2 \strokec2 .\cf4 \strokec4 _movePopup\cf2 \cb1 \strokec2 \
+\cb3                 \});\cb1 \
+\cb3                 \cf8 \strokec8 this\cf2 \strokec2 .\cf4 \strokec4 _popupHandlersAdded\cf2 \strokec2  = \cf8 \strokec8 true\cf2 \strokec2 ;\cb1 \
+\cb3             \}\cb1 \
+\cb3   \cb1 \
+\cb3             \cf9 \strokec9 return\cf2 \strokec2  \cf8 \strokec8 this\cf2 \strokec2 ;\cb1 \
+\cb3         \},\cb1 \
+\cb3   \cb1 \
+\cb3         \cf6 \strokec6 // @method unbindPopup(): this\cf2 \cb1 \strokec2 \
+\cb3         \cf6 \strokec6 // Removes the popup previously bound with `bindPopup`.\cf2 \cb1 \strokec2 \
+\cb3         \cf7 \strokec7 unbindPopup\cf4 \strokec4 :\cf2 \strokec2  \cf8 \strokec8 function\cf2 \strokec2  () \{\cb1 \
+\cb3             \cf9 \strokec9 if\cf2 \strokec2  (\cf8 \strokec8 this\cf2 \strokec2 .\cf4 \strokec4 _popup\cf2 \strokec2 ) \{\cb1 \
+\cb3                 \cf8 \strokec8 this\cf2 \strokec2 .\cf5 \strokec5 off\cf2 \strokec2 (\{\cb1 \
+\cb3                     \cf4 \strokec4 click:\cf2 \strokec2  \cf8 \strokec8 this\cf2 \strokec2 .\cf4 \strokec4 _openPopup\cf2 \strokec2 ,\cb1 \
+\cb3                     \cf4 \strokec4 keypress:\cf2 \strokec2  \cf8 \strokec8 this\cf2 \strokec2 .\cf4 \strokec4 _onKeyPress\cf2 \strokec2 ,\cb1 \
+\cb3                     \cf4 \strokec4 remove:\cf2 \strokec2  \cf8 \strokec8 this\cf2 \strokec2 .\cf4 \strokec4 closePopup\cf2 \strokec2 ,\cb1 \
+\cb3                     \cf4 \strokec4 move:\cf2 \strokec2  \cf8 \strokec8 this\cf2 \strokec2 .\cf4 \strokec4 _movePopup\cf2 \cb1 \strokec2 \
+\cb3                 \});\cb1 \
+\cb3                 \cf8 \strokec8 this\cf2 \strokec2 .\cf4 \strokec4 _popupHandlersAdded\cf2 \strokec2  = \cf8 \strokec8 false\cf2 \strokec2 ;\cb1 \
+\cb3                 \cf8 \strokec8 this\cf2 \strokec2 .\cf4 \strokec4 _popup\cf2 \strokec2  = \cf8 \strokec8 null\cf2 \strokec2 ;\cb1 \
+\cb3             \}\cb1 \
+\cb3             \cf9 \strokec9 return\cf2 \strokec2  \cf8 \strokec8 this\cf2 \strokec2 ;\cb1 \
+\cb3         \},\cb1 \
+\cb3   \cb1 \
+\cb3         \cf6 \strokec6 // @method openPopup(latlng?: LatLng): this\cf2 \cb1 \strokec2 \
+\cb3         \cf6 \strokec6 // Opens the bound popup at the specified `latlng` or at the default popup anchor if no `latlng` is passed.\cf2 \cb1 \strokec2 \
+\cb3         \cf5 \strokec5 openPopup\cf4 \strokec4 :\cf2 \strokec2  \cf8 \strokec8 function\cf2 \strokec2  (\cf4 \strokec4 layer\cf2 \strokec2 , \cf4 \strokec4 latlng\cf2 \strokec2 ) \{\cb1 \
+\cb3             \cf9 \strokec9 if\cf2 \strokec2  (\cf8 \strokec8 this\cf2 \strokec2 .\cf4 \strokec4 _popup\cf2 \strokec2  && \cf8 \strokec8 this\cf2 \strokec2 .\cf4 \strokec4 _map\cf2 \strokec2 ) \{\cb1 \
+\cb3                 \cf4 \strokec4 latlng\cf2 \strokec2  = \cf8 \strokec8 this\cf2 \strokec2 .\cf4 \strokec4 _popup\cf2 \strokec2 .\cf5 \strokec5 _prepareOpen\cf2 \strokec2 (\cf8 \strokec8 this\cf2 \strokec2 , \cf4 \strokec4 layer\cf2 \strokec2 , \cf4 \strokec4 latlng\cf2 \strokec2 );\cb1 \
+\cb3   \cb1 \
+\cb3                 \cf6 \strokec6 // open the popup on the map\cf2 \cb1 \strokec2 \
+\cb3                 \cf8 \strokec8 this\cf2 \strokec2 .\cf4 \strokec4 _map\cf2 \strokec2 .\cf5 \strokec5 openPopup\cf2 \strokec2 (\cf8 \strokec8 this\cf2 \strokec2 .\cf4 \strokec4 _popup\cf2 \strokec2 , \cf4 \strokec4 latlng\cf2 \strokec2 );\cb1 \
+\cb3             \}\cb1 \
+\cb3   \cb1 \
+\cb3             \cf9 \strokec9 return\cf2 \strokec2  \cf8 \strokec8 this\cf2 \strokec2 ;\cb1 \
+\cb3         \},\cb1 \
+\cb3   \cb1 \
+\cb3         \cf6 \strokec6 // @method closePopup(): this\cf2 \cb1 \strokec2 \
+\cb3         \cf6 \strokec6 // Closes the popup bound to this layer if it is open.\cf2 \cb1 \strokec2 \
+\cb3         \cf5 \strokec5 closePopup\cf4 \strokec4 :\cf2 \strokec2  \cf8 \strokec8 function\cf2 \strokec2  () \{\cb1 \
+\cb3             \cf9 \strokec9 if\cf2 \strokec2  (\cf8 \strokec8 this\cf2 \strokec2 .\cf4 \strokec4 _popup\cf2 \strokec2 ) \{\cb1 \
+\cb3                 \cf8 \strokec8 this\cf2 \strokec2 .\cf4 \strokec4 _popup\cf2 \strokec2 .\cf5 \strokec5 _close\cf2 \strokec2 ();\cb1 \
+\cb3             \}\cb1 \
+\cb3             \cf9 \strokec9 return\cf2 \strokec2  \cf8 \strokec8 this\cf2 \strokec2 ;\cb1 \
+\cb3         \},\cb1 \
+\cb3   \cb1 \
+\cb3         \cf6 \strokec6 // @method togglePopup(): this\cf2 \cb1 \strokec2 \
+\cb3         \cf6 \strokec6 // Opens or closes the popup bound to this layer depending on its current state.\cf2 \cb1 \strokec2 \
+\cb3         \cf5 \strokec5 togglePopup\cf4 \strokec4 :\cf2 \strokec2  \cf8 \strokec8 function\cf2 \strokec2  (\cf4 \strokec4 target\cf2 \strokec2 ) \{\cb1 \
+\cb3             \cf9 \strokec9 if\cf2 \strokec2  (\cf8 \strokec8 this\cf2 \strokec2 .\cf4 \strokec4 _popup\cf2 \strokec2 ) \{\cb1 \
+\cb3                 \cf9 \strokec9 if\cf2 \strokec2  (\cf8 \strokec8 this\cf2 \strokec2 .\cf4 \strokec4 _popup\cf2 \strokec2 .\cf4 \strokec4 _map\cf2 \strokec2 ) \{\cb1 \
+\cb3                     \cf8 \strokec8 this\cf2 \strokec2 .\cf5 \strokec5 closePopup\cf2 \strokec2 ();\cb1 \
+\cb3                 \} \cf9 \strokec9 else\cf2 \strokec2  \{\cb1 \
+\cb3                     \cf8 \strokec8 this\cf2 \strokec2 .\cf5 \strokec5 openPopup\cf2 \strokec2 (\cf4 \strokec4 target\cf2 \strokec2 );\cb1 \
+\cb3                 \}\cb1 \
+\cb3             \}\cb1 \
+\cb3             \cf9 \strokec9 return\cf2 \strokec2  \cf8 \strokec8 this\cf2 \strokec2 ;\cb1 \
+\cb3         \},\cb1 \
+\cb3   \cb1 \
+\cb3         \cf6 \strokec6 // @method isPopupOpen(): boolean\cf2 \cb1 \strokec2 \
+\cb3         \cf6 \strokec6 // Returns `true` if the popup bound to this layer is currently open.\cf2 \cb1 \strokec2 \
+\cb3         \cf5 \strokec5 isPopupOpen\cf4 \strokec4 :\cf2 \strokec2  \cf8 \strokec8 function\cf2 \strokec2  () \{\cb1 \
+\cb3             \cf9 \strokec9 return\cf2 \strokec2  (\cf8 \strokec8 this\cf2 \strokec2 .\cf4 \strokec4 _popup\cf2 \strokec2  ? \cf8 \strokec8 this\cf2 \strokec2 .\cf4 \strokec4 _popup\cf2 \strokec2 .\cf5 \strokec5 isOpen\cf2 \strokec2 () : \cf8 \strokec8 false\cf2 \strokec2 );\cb1 \
+\cb3         \},\cb1 \
+\cb3   \cb1 \
+\cb3         \cf6 \strokec6 // @method setPopupContent(content: String|HTMLElement|Popup): this\cf2 \cb1 \strokec2 \
+\cb3         \cf6 \strokec6 // Sets the content of the popup bound to this layer.\cf2 \cb1 \strokec2 \
+\cb3         \cf5 \strokec5 setPopupContent\cf4 \strokec4 :\cf2 \strokec2  \cf8 \strokec8 function\cf2 \strokec2  (\cf4 \strokec4 content\cf2 \strokec2 ) \{\cb1 \
+\cb3             \cf9 \strokec9 if\cf2 \strokec2  (\cf8 \strokec8 this\cf2 \strokec2 .\cf4 \strokec4 _popup\cf2 \strokec2 ) \{\cb1 \
+\cb3                 \cf8 \strokec8 this\cf2 \strokec2 .\cf4 \strokec4 _popup\cf2 \strokec2 .\cf5 \strokec5 setContent\cf2 \strokec2 (\cf4 \strokec4 content\cf2 \strokec2 );\cb1 \
+\cb3             \}\cb1 \
+\cb3             \cf9 \strokec9 return\cf2 \strokec2  \cf8 \strokec8 this\cf2 \strokec2 ;\cb1 \
+\cb3         \},\cb1 \
+\cb3   \cb1 \
+\cb3         \cf6 \strokec6 // @method getPopup(): Popup\cf2 \cb1 \strokec2 \
+\cb3         \cf6 \strokec6 // Returns the popup bound to this layer.\cf2 \cb1 \strokec2 \
+\cb3         \cf5 \strokec5 getPopup\cf4 \strokec4 :\cf2 \strokec2  \cf8 \strokec8 function\cf2 \strokec2  () \{\cb1 \
+\cb3             \cf9 \strokec9 return\cf2 \strokec2  \cf8 \strokec8 this\cf2 \strokec2 .\cf4 \strokec4 _popup\cf2 \strokec2 ;\cb1 \
+\cb3         \},\cb1 \
+\cb3   \cb1 \
+\cb3         \cf5 \strokec5 _openPopup\cf4 \strokec4 :\cf2 \strokec2  \cf8 \strokec8 function\cf2 \strokec2  (\cf4 \strokec4 e\cf2 \strokec2 ) \{\cb1 \
+\cb3             \cf8 \strokec8 var\cf2 \strokec2  \cf4 \strokec4 layer\cf2 \strokec2  = \cf4 \strokec4 e\cf2 \strokec2 .\cf4 \strokec4 layer\cf2 \strokec2  || \cf4 \strokec4 e\cf2 \strokec2 .\cf4 \strokec4 target\cf2 \strokec2 ;\cb1 \
+\cb3   \cb1 \
+\cb3             \cf9 \strokec9 if\cf2 \strokec2  (!\cf8 \strokec8 this\cf2 \strokec2 .\cf4 \strokec4 _popup\cf2 \strokec2 ) \{\cb1 \
+\cb3                 \cf9 \strokec9 return\cf2 \strokec2 ;\cb1 \
+\cb3             \}\cb1 \
+\cb3   \cb1 \
+\cb3             \cf9 \strokec9 if\cf2 \strokec2  (!\cf8 \strokec8 this\cf2 \strokec2 .\cf4 \strokec4 _map\cf2 \strokec2 ) \{\cb1 \
+\cb3                 \cf9 \strokec9 return\cf2 \strokec2 ;\cb1 \
+\cb3             \}\cb1 \
+\cb3   \cb1 \
+\cb3             \cf6 \strokec6 // prevent map click\cf2 \cb1 \strokec2 \
+\cb3             \cf5 \strokec5 stop\cf2 \strokec2 (\cf4 \strokec4 e\cf2 \strokec2 );\cb1 \
+\cb3   \cb1 \
+\cb3             \cf6 \strokec6 // if this inherits from Path its a vector and we can just\cf2 \cb1 \strokec2 \
+\cb3             \cf6 \strokec6 // open the popup at the new location\cf2 \cb1 \strokec2 \
+\cb3             \cf9 \strokec9 if\cf2 \strokec2  (\cf4 \strokec4 layer\cf2 \strokec2  \cf8 \strokec8 instanceof\cf2 \strokec2  \cf4 \strokec4 Path\cf2 \strokec2 ) \{\cb1 \
+\cb3                 \cf8 \strokec8 this\cf2 \strokec2 .\cf5 \strokec5 openPopup\cf2 \strokec2 (\cf4 \strokec4 e\cf2 \strokec2 .\cf4 \strokec4 layer\cf2 \strokec2  || \cf4 \strokec4 e\cf2 \strokec2 .\cf4 \strokec4 target\cf2 \strokec2 , \cf4 \strokec4 e\cf2 \strokec2 .\cf4 \strokec4 latlng\cf2 \strokec2 );\cb1 \
+\cb3                 \cf9 \strokec9 return\cf2 \strokec2 ;\cb1 \
+\cb3             \}\cb1 \
+\cb3   \cb1 \
+\cb3             \cf6 \strokec6 // otherwise treat it like a marker and figure out\cf2 \cb1 \strokec2 \
+\cb3             \cf6 \strokec6 // if we should toggle it open/closed\cf2 \cb1 \strokec2 \
+\cb3             \cf9 \strokec9 if\cf2 \strokec2  (\cf8 \strokec8 this\cf2 \strokec2 .\cf4 \strokec4 _map\cf2 \strokec2 .\cf5 \strokec5 hasLayer\cf2 \strokec2 (\cf8 \strokec8 this\cf2 \strokec2 .\cf4 \strokec4 _popup\cf2 \strokec2 ) && \cf8 \strokec8 this\cf2 \strokec2 .\cf4 \strokec4 _popup\cf2 \strokec2 .\cf4 \strokec4 _source\cf2 \strokec2  === \cf4 \strokec4 layer\cf2 \strokec2 ) \{\cb1 \
+\cb3                 \cf8 \strokec8 this\cf2 \strokec2 .\cf5 \strokec5 closePopup\cf2 \strokec2 ();\cb1 \
+\cb3             \} \cf9 \strokec9 else\cf2 \strokec2  \{\cb1 \
+\cb3                 \cf8 \strokec8 this\cf2 \strokec2 .\cf5 \strokec5 openPopup\cf2 \strokec2 (\cf4 \strokec4 layer\cf2 \strokec2 , \cf4 \strokec4 e\cf2 \strokec2 .\cf4 \strokec4 latlng\cf2 \strokec2 );\cb1 \
+\cb3             \}\cb1 \
+\cb3         \},\cb1 \
+\cb3   \cb1 \
+\cb3         \cf5 \strokec5 _movePopup\cf4 \strokec4 :\cf2 \strokec2  \cf8 \strokec8 function\cf2 \strokec2  (\cf4 \strokec4 e\cf2 \strokec2 ) \{\cb1 \
+\cb3             \cf8 \strokec8 this\cf2 \strokec2 .\cf4 \strokec4 _popup\cf2 \strokec2 .\cf5 \strokec5 setLatLng\cf2 \strokec2 (\cf4 \strokec4 e\cf2 \strokec2 .\cf4 \strokec4 latlng\cf2 \strokec2 );\cb1 \
+\cb3         \},\cb1 \
+\cb3   \cb1 \
+\cb3         \cf5 \strokec5 _onKeyPress\cf4 \strokec4 :\cf2 \strokec2  \cf8 \strokec8 function\cf2 \strokec2  (\cf4 \strokec4 e\cf2 \strokec2 ) \{\cb1 \
+\cb3             \cf9 \strokec9 if\cf2 \strokec2  (\cf4 \strokec4 e\cf2 \strokec2 .\cf4 \strokec4 originalEvent\cf2 \strokec2 .\cf4 \strokec4 keyCode\cf2 \strokec2  === \cf10 \strokec10 13\cf2 \strokec2 ) \{\cb1 \
+\cb3                 \cf8 \strokec8 this\cf2 \strokec2 .\cf5 \strokec5 _openPopup\cf2 \strokec2 (\cf4 \strokec4 e\cf2 \strokec2 );\cb1 \
+\cb3             \}\cb1 \
+\cb3         \}\cb1 \
+\cb3     \});\cb1 \
+}
